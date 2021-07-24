@@ -1,77 +1,53 @@
 //Display Date and time 
 $(document).ready(function() {
     var currentDay = moment();
-    $("#currentDay").text(currentDay.format("MMM, DD YYYY - hh:mm:ss a"));
+    $("#currentDay").text(currentDay.format("MMMM, Do YYYY, hh:mm:ss a"));
+
+    $('.saveBtn').on("click", function(){
+      var textAreaValue = $(this).siblings('.description').val();
+      var time = $(this).parent().attr('id');
+
+      localStorage.setItem(time, textAreaValue);
+
+}); 
+
+    function updateClass(){
+      var currentHour = moment().hours();
+
+      $('.time-block').each(function(){
+
+        var timeElementContainer = $(this).attr('id').split('-')[1];
+
+        if (timeElementContainer < currentHour){
+          $(this).addClass('past')
+        }else if(timeElementContainer === currentHour){
+          $(this).removeClass('past')
+          $(this).addClass('present')
+        }else{
+          $(this).removeClass('past')
+          $(this).removeClass('present')
+          $(this).addClass('future')
+          
+           
+
+        }
+      })
+    }
+    updateClass();
+
+    $('#hour-9 .description').val(localStorage.getItem('hour-9'))
+    $('#hour-10 .description').val(localStorage.getItem('hour-10'))
+    $('#hour-11 .description').val(localStorage.getItem('hour-11'))
+    $('#hour-12 .description').val(localStorage.getItem('hour-12'))
+    $('#hour-1 .description').val(localStorage.getItem('hour-1'))
+    $('#hour-2 .description').val(localStorage.getItem('hour-2'))
+    $('#hour-3 .description').val(localStorage.getItem('hour-3'))
+    $('#hour-4 .description').val(localStorage.getItem('hour-4'))
+    $('#hour-5 .description').val(localStorage.getItem('hour-5'))
+
 });
 
-Var timeTrackObject =
-
-var rightNow = moment().format("MMMM Do, YYYY - hh:mm:ss a");
-console.log(rightNow);
-
-var tomorrow = moment().add(1, "day").format("dddd, MM-D-YYYY [at] hh:mm:ss A");
-console.log(tomorrow);
-
-var pastDate = moment("12-01-1999", "MM-DD-YYYY").format("dddd, MM/DD/YY");
-console.log(pastDate);
-
-var auditTask = function(taskEl) {
-  // to ensure element is getting to the function
-  console.log(taskEl);
-};
-
-function mySave() {
-  var content = localStorage.getItem("content");
-
-  document.getElementById("textarea").value = content;
-}
-
-//Style Reference for Present
-var presentHour= moment().format("hA");
-$(".hour:contains(" + presentHour + ")").addClass("present");
-
-//Style Reference for past
-let pastHour = moment().format("hA");
-$(".hour:contains(" + pastHour + ")").addClass("past");
-
-//Style Reference for future
-var futuretHour = moment().format("hA");
-$(".hour:contains(" + futureHour + ")").addClass("future");
 
 
-var saveTasks = function() {
-  localStorage.setItem("task", JSON.stringify(tasks))
-}
 
-let timeTrackObject = {};
-  //2. Checks if local storage exists, if it doesn't load preset data to array.
-  if (localStorage.getItem('timeTrackObject')) {
-      timeTrackObject = JSON.parse(localStorage.getItem('timeTrackObject'));
-  }else{
-    timeTrackObject = {
-      'nine': { time: "9", value: ""},
-      'ten':{ time: "10", value: ""},
-      'eleven':{ time: "11", value: ""},
-      'twelve':{ time: "12", value: ""},
-      'thriteen':{ time: "13", value: ""},
-      'fourteen':{ time: "14", value: ""},
-      'fifthteen':{ time: "15", value: ""},
-      'sixteen':{ time: "16", value: ""},
-      'seventeen':{ time: "17", value: ""}
-    };
-  }
 
-  var auditTask = function(taskEl) {
-    // get date from task element
-    var date = $(taskEl).find("span").text().trim();
-    // ensure it worked
-    console.log(date); 
-  
-    // convert to moment object at 5:00pm
-    var time = moment(date, "L").set("hour", 17);
-    // this should print out an object for the value of the date variable, but at 5:00pm of that date
-    console.log(time);
-  
-  }
-
-  document.getEventListner("click", saveTasks);
