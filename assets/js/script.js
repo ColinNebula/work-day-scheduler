@@ -3,6 +3,7 @@ $(document).ready(function() {
     var currentDay = moment();
     $("#currentDay").text(currentDay.format("MMMM, Do YYYY, hh:mm:ss a"));
 
+    // Event Listener for local storage saves
     $('.saveBtn').on("click", function(){
       var textAreaValue = $(this).siblings('.description').val();
       var time = $(this).parent().attr('id');
@@ -10,14 +11,14 @@ $(document).ready(function() {
       localStorage.setItem(time, textAreaValue);
 
 }); 
-
+    // Time block function
     function updateClass(){
       var currentHour = moment().hours();
 
       $('.time-block').each(function(){
 
         var timeElementContainer = $(this).attr('id').split('-')[1];
-
+        
         if (timeElementContainer < currentHour){
           $(this).addClass('past')
         }else if(timeElementContainer === currentHour){
@@ -28,9 +29,7 @@ $(document).ready(function() {
           $(this).removeClass('present')
           $(this).addClass('future')
           
-           
-
-        }
+          }
       })
     }
     updateClass();

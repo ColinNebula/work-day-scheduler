@@ -9,17 +9,20 @@ I WANT to add important events to a daily planner
 SO THAT I can manage my time effectively
 
 
-# Work Day Schedule Marup
+# Work Day Scheduler Marup
 ![05-third-party-apis-homework-demo](https://user-images.githubusercontent.com/57843842/126826450-742ef873-cfae-426b-90bf-abcecb5337f1.gif)
 
 
-# Screenshot for password generator
+# Screenshot for Work Day Scheduler
+![Work-Day-Schedule-screenshot 2021-07-25 004749](https://user-images.githubusercontent.com/57843842/126888107-c4e775c1-cfa4-4bb6-8863-f2c649547e62.jpg)
+
 
 # Webpage URL
 https://colinnebula.github.io/work-day-scheduler/
 
 
 # Colin Nebula GitHub Repository
+https://github.com/ColinNebula/work-day-scheduler/tree/develop
 
 
 # Acceptance Criteria
@@ -38,7 +41,6 @@ WHEN I refresh the page
 THEN the saved events persist
 
 # Table of Contents
-
 * [Installation](#installation)
 * [Usage](#usage)
 * [Credits](#credits)
@@ -49,8 +51,8 @@ THEN the saved events persist
 With the use of any browser the user can connect to the website and all of the available feature will be at every users finger tips.
 
 # Usage 
-With the use all of the popular browser. user will click on the button.
-Answer a short series of valid questions to produce a strong secure password.
+With the use all of the popular browser. Users can enter their schedule for the day. These events are then saved to local starage. 
+
 
 # Development 
 N/A
