@@ -51,7 +51,7 @@ THEN the saved events persist
 With the use of any browser the user can connect to the website and all of the available feature will be at every users finger tips.
 
 # Usage 
-With the use all of the popular browser. Users can enter their schedule for the day. These events are then saved to local starage. 
+User can enter their schedule for the day by typing in the input field. These events are then saved to local starage. 
 
 
 # Development 
